@@ -5,12 +5,11 @@ RUN docker-php-source extract \
         libapache2-mod-security2 \
         libxslt-dev \
         libicu-dev \
-        libpq-dev \
-
+        libpq-dev
 
 # Install Composer
 #RUN curl -sS https://getcomposer.org/installer | php \
-#        && mv composer.phar /usr/local/bin/composer
+ #       && mv composer.phar /usr/local/bin/composer
 # Install GD
 RUN apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev \
         && docker-php-ext-configure gd --with-freetype --with-jpeg \
@@ -19,6 +18,7 @@ RUN apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev \
 # Install OPCache
 RUN docker-php-ext-configure opcache --enable-opcache \
     && docker-php-ext-install opcache
+
 # Install zip
 RUN apt-get update && \
      apt-get install -y \
@@ -26,12 +26,7 @@ RUN apt-get update && \
          && docker-php-ext-install zip
 
 # Install Other extenshions
-RUN docker-php-ext-install pdo pdo_mysql xml json opcache session mysqli soap tokenizer xsl intl gettext #pdo_pgsql
-
-#RUN a2enmod rewrite \
-#        && a2enmod ssl \
-#        && a2enmod security2 \
-#        && a2enmod headers
+RUN docker-php-ext-install pdo pdo_mysql xml json opcache session mysqli soap tokenizer xsl intl pdo_pgsql gettext
 
 COPY ./ /var/www/html/
 WORKDIR /var/www/html/
