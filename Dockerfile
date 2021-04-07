@@ -1,5 +1,4 @@
-FROM php:8.0-fpm-buster
-#php:7.4.3-apache-buster
+FROM php:7.4.3-apache-buster
 RUN docker-php-source extract \
 && apt-get update \
 && apt-get install libldap2-dev libxml2-dev nano -y \
@@ -35,3 +34,5 @@ RUN docker-php-ext-install pdo pdo_mysql xml json opcache session mysqli soap to
 #        && a2enmod headers
 
 COPY ./ /var/www/html/
+WORKDIR /var/www/html/
+CMD [ "php", "./index.php" ]
