@@ -29,5 +29,3 @@ RUN apt-get update && \
 RUN docker-php-ext-install pdo pdo_mysql xml json opcache session mysqli soap tokenizer xsl intl pdo_pgsql gettext
 
 COPY ./ /var/www/html/
-WORKDIR /var/www/html/
-CMD [ "php", "./index.php" ]
