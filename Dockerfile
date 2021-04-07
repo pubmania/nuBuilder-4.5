@@ -26,7 +26,7 @@ RUN apt-get update && \
          libzip-dev \
          && docker-php-ext-install zip
 
- Install Other extenshions
+# Install Other extenshions
 RUN docker-php-ext-install pdo pdo_mysql xml json opcache session mysqli soap tokenizer xsl intl gettext #pdo_pgsql
 
 #RUN a2enmod rewrite \
