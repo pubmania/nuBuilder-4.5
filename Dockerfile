@@ -1,4 +1,4 @@
-FROM php:8.0-fpm-alpine3.13
+FROM php:8.0-fpm-buster
 #php:7.4.3-apache-buster
 RUN docker-php-source extract \
 && apt-get update \
