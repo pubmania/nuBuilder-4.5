@@ -3,14 +3,22 @@
 // Important Note: You must restart your browser after modifying nuconfig.php in order for changes to be reflected 
 
 // Database Settings:
-	$nuConfigDBHost						= "127.0.0.1";				//-- Database Host / IP
+	/*$nuConfigDBHost						= "127.0.0.1";				//-- Database Host / IP
 	$nuConfigDBName						= "nubuilder4";				//-- Database Name. You can change the name, if desired. The database must exist or must be created on your server.
 	$nuConfigDBUser						= "nuadmin";				//-- Database User. Change the user, if desired. The user must exist or must be created.
 	$nuConfigDBPassword					= "YourDBPassword";			//-- Database Password. We recommend you to use any strong password.
+        */
+	$nuConfigDBHost                 = getenv('DB_HOST');
+        $nuConfigDBName                 = getenv('DB_NAME'); 
+        $nuConfigDBUser                 = getenv('DB_ROOT'); 
+        $nuConfigDBPassword             = getenv('DB_ROOT_PASSWORD'); 
 
 // Administrator Login:
-	$nuConfigDBGlobeadminUsername	 	= "globeadmin";				//-- globeadmin username. You can choose any username you like.
+	/*$nuConfigDBGlobeadminUsername	 	= "globeadmin";				//-- globeadmin username. You can choose any username you like.
 	$nuConfigDBGlobeadminPassword		= "nu";						//-- globeadmin password. Please choose a stronger password!
+	*/
+        $nuConfigDBGlobeadminUsername   = getenv('DB_GLOBEADMIN_USERNAME');
+        $nuConfigDBGlobeadminPassword   = getenv('DB_GLOBEADMIN_PASSWORD');
 
 // Settings:
 	$nuConfigTitle						= "nuBuilder 4";			//-- nuBuilder Title
@@ -60,7 +68,7 @@ $nuJSOptions = "
 	nuAdminButtons['nuPHP']						= true; 
 	nuAdminButtons['nuRefresh']					= true;
 	nuAdminButtons['nuObjects']					= true; 
-	nuAdminButtons['nuProperties']				= true;	
+	nuAdminButtons['nuProperties']					= true;	
 
 ";
 
